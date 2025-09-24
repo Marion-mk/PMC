@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Membership Application</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #0e1c2c;
+      color: white;
+    }
+    header, footer {
+      background-color: #0e1c2c;
+      padding: 20px;
+      text-align: center;
+    }
+    header img, footer img {
+      height: 50px;
+    }
+    .container {
+      max-width: 600px;
+      margin: 30px auto;
+      background: url("your-background-image.jpg") no-repeat center center;
+      background-size: cover;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      border-radius: 4px;
+      border: none;
+      margin-bottom: 15px;
+    }
+    input[type="checkbox"] {
+      width: auto;
+    }
+    input[type="submit"] {
+      background-color: white;
+      color: #0e1c2c;
+      font-weight: bold;
+      cursor: pointer;
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: none;
+    }
+    input[type="submit"]:hover {
+      background-color: #ccc;
+    }
+  </style>
+
+  <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+  <script src="https://www.google.com/recaptcha/api.js"></script>
+  <script>
+    function timestamp() {
+      var response = document.getElementById("g-recaptcha-response");
+      if (response == null || response.value.trim() == "") {
+        var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);
+        elems["ts"] = JSON.stringify(new Date().getTime());
+        document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems);
+      }
+    }
+    setInterval(timestamp, 500);
+  </script>
+</head>
+<body>
+
+  <header>
+    <!-- Add your logo here -->
+    <img src="your-logo.png" alt="Club Logo">
+  </header>
+
+  <div class="container">
+    <h2>Membership Application Form</h2>
+    <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DJ9000001lWYs" method="POST">
+      <input type="hidden" name='captcha_settings' value='{"keyname":"NotSureItWorks","fallback":"true","orgId":"00DJ9000001lWYs","ts":""}'>
+      <input type="hidden" name="oid" value="00DJ9000001lWYs">
+      <input type="hidden" name="retURL" value="https://www.onezaabeel.com/">
+
+      <label for="first_name">First Name</label>
+      <input id="first_name" maxlength="40" name="first_name" type="text" required>
+
+      <label for="last_name">Last Name</label>
+      <input id="last_name" maxlength="80" name="last_name" type="text" required>
+
+      <label>Date of Birth</label>
+      <input id="00NJ900000D3Jqp" name="00NJ900000D3Jqp" type="date">
+
+      <label for="email">Email</label>
+      <input id="email" maxlength="80" name="email" type="email" required>
+
+      <label for="phone">Phone</label>
+      <input id="phone" maxlength="40" name="phone" type="text">
+
+      <label>Company / Organisation</label>
+      <input id="00NJ900000D3Js7" name="00NJ900000D3Js7" type="text">
+
+      <label for="title">Title</label>
+      <input id="title" maxlength="40" name="title" type="text">
+
+      <label>Reason for wanting to be a member?</label>
+      <textarea id="00NJ900000D3JqB" name="00NJ900000D3JqB" rows="3"></textarea>
+
+      <label>Membership Type</label>
+      <select id="00NJ900000D3JqQ" name="00NJ900000D3JqQ">
+        <option value="">--None--</option>
+        <option value="Adult">Adult</option>
+        <option value="Plus One">Plus One</option>
+        <option value="International">International</option>
+        <option value="Under 30">Under 30</option>
+        <option value="Legacy">Legacy</option>
+      </select>
+
+      <label>Interests</label>
+      <select id="00NJ900000D3JqL" multiple name="00NJ900000D3JqL">
+        <option value="Paddle">Paddle</option>
+        <option value="Tennis">Tennis</option>
+        <option value="Gym">Gym</option>
+        <option value="Networking">Networking</option>
+        <option value="Cultural Activities">Cultural Activities</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <label>Name of Proposer</label>
+      <input id="00NJ900000D3JqV" name="00NJ900000D3JqV" type="text">
+
+      <label>Email of Proposer</label>
+      <input id="00NJ900000D3Jqa" name="00NJ900000D3Jqa" type="email">
+
+      <label>Name of Seconder</label>
+      <input id="00NJ900000D3Jqf" name="00NJ900000D3Jqf" type="text">
+
+      <label>Email of Seconder</label>
+      <input id="00NJ900000D3Jqk" name="00NJ900000D3Jqk" type="email">
+
+      <label>
+        <input id="00NJ900000D3Jq2" name="00NJ900000D3Jq2" type="checkbox" value="1"> I confirm I share the club values
+      </label>
+
+      <div class="g-recaptcha" data-sitekey="6LedB9QrAAAAAP-sdpFy6kNjCOBq71mveg3wYAKn"></div>
+      <br>
+      <input type="submit" value="Submit Application">
+    </form>
+  </div>
+
+  <footer>
+    <!-- Add footer logo or text here -->
+    <img src="your-logo.png" alt="Footer Logo">
+  </footer>
+
+</body>
+</html>
