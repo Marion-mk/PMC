@@ -91,9 +91,14 @@
 
   <div class="container">
     <h2>Membership Application Form</h2>
-    <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DJ9000001lWYs" method="POST">
-       <input type="hidden" name="oid" value="00DJ9000001lWYs"> 
-      <input type="hidden" name="retURL" value="https://www.onezaabeel.com/">
+<form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DJ9000001lWYs" method="POST">
+  <input type="hidden" name="oid" value="00DJ9000001lWYs">
+  <input type="hidden" name="retURL" value="https://www.onezaabeel.com/">
+
+  <!-- DEBUG (remove after testing) -->
+  <input type="hidden" name="debug" value="1">
+  <input type="hidden" name="debugEmail" value="mkaranja+00dj9000001lwys@salesforce.com">
+
 
       <label for="first_name">First Name</label>
       <input id="first_name" maxlength="40" name="first_name" type="text" required>
