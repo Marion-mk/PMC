@@ -53,6 +53,30 @@
     input[type="submit"]:hover {
       background-color: #ccc;
     }
+    .interests {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  .interest-btn {
+    background-color: white;
+    color: #0e1c2c;
+    border: 2px solid #0e1c2c;
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease-in-out;
+  }
+  .interest-btn.active {
+    background-color: #0e1c2c;
+    color: white;
+  }
+    
   </style>
 
   <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
@@ -104,15 +128,18 @@
         <option value="Legacy">Legacy</option>
       </select>
 
-      <label>Interests</label>
-      <select id="00NJ900000D3JqL" multiple name="00NJ900000D3JqL">
-        <option value="Paddle">Paddle</option>
-        <option value="Tennis">Tennis</option>
-        <option value="Gym">Gym</option>
-        <option value="Networking">Networking</option>
-        <option value="Cultural Activities">Cultural Activities</option>
-        <option value="Other">Other</option>
-      </select>
+ <label>Interests</label>
+<div class="interests">
+  <button type="button" class="interest-btn" data-value="Paddle">🏓 Paddle</button>
+  <button type="button" class="interest-btn" data-value="Tennis">🎾 Tennis</button>
+  <button type="button" class="interest-btn" data-value="Gym">💪 Gym</button>
+  <button type="button" class="interest-btn" data-value="Networking">🤝 Networking</button>
+  <button type="button" class="interest-btn" data-value="Cultural Activities">🎭 Cultural</button>
+  <button type="button" class="interest-btn" data-value="Other">✨ Other</button>
+</div>
+
+<!-- Hidden input to send values to Salesforce -->
+<input type="hidden" id="interestsField" name="00NJ900000D3JqL" value="">
 
       <label>Name of Proposer</label>
       <input id="00NJ900000D3JqV" name="00NJ900000D3JqV" type="text">
@@ -138,6 +165,18 @@
     <!-- Add footer logo or text here -->
     <img src="images/oooz-logo-white.jpeg" alt="Footer Logo">
   </footer>
+<script>
+  const buttons = document.querySelectorAll(".interest-btn");
+  const hiddenField = document.getElementById("interestsField");
 
-</body>
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      btn.classList.toggle("active");
+      // Collect all active values
+      const selected = Array.from(document.querySelectorAll(".interest-btn.active"))
+                            .map(b => b.dataset.value);
+      hiddenField.value = selected.join(";"); // Salesforce expects semi-colon separated values
+    });
+  });
+</script></body>
 </html>
