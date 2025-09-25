@@ -92,6 +92,7 @@
   <div class="container">
     <h2>Membership Application Form</h2>
     <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DJ9000001lWYs" method="POST">
+       <input type="hidden" name="oid" value="00DJ9000001lWYs"> 
       <input type="hidden" name="retURL" value="https://www.onezaabeel.com/">
 
       <label for="first_name">First Name</label>
@@ -178,5 +179,6 @@
       hiddenField.value = selected.join(";"); // Salesforce expects semi-colon separated values
     });
   });
-</script></body>
+</script>
+</body>
 </html>
